@@ -30,7 +30,7 @@
                         </li>
                     </ul>
                     <span class="navbar-text">
-                        <a href="../logout.php" class="text-primary-emphasis text-decoration-none">loig out</a>
+                        <a href="../logout.php" class="text-primary-emphasis text-decoration-none">log out</a>
                     </span>
                 </div>
             </div>

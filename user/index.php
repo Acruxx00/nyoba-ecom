@@ -30,13 +30,38 @@
                         </li>
                     </ul>
                     <span class="navbar-text">
-                        <a href="../logout.php" class="text-primary-emphasis text-decoration-none">loig out</a>
+                        <a href="../logout.php" class="text-primary-emphasis text-decoration-none">log out</a>
                     </span>
                 </div>
             </div>
         </nav>
     </div>
 
+    <table border="1" class="table">
+        <tr>
+            <th>No</th>
+            <th>Nama</th>
+            <th>Harga</th>
+            <th>Stok</th>
+            <th>Opsi</th>
+        </tr>
+        <?php
+        include "../koneksi.php";
+        $query_mysql = mysqli_query($conn, "SELECT * FROM barang") or die(mysqli_connect_error());
+        $nomor = 1;
+        while ($data = mysqli_fetch_array($query_mysql)) {
+        ?>
+            <tr>
+                <td><?php echo $nomor++; ?></td>
+                <td><?php echo $data['nama']; ?></td>
+                <td><?php echo $data['harga']; ?></td>
+                <td><?php echo $data['stok']; ?></td>
+                <td>
+                    <a class="beli" href="beli.php?id=<?php echo $data['id']; ?>">Beli</a>
+                </td>
+            </tr>
+        <?php } ?>
+    </table>
 
 
 

@@ -6,7 +6,6 @@ require 'koneksi.php';
 ?>
 
 <body>
-    <h1><?= $_SESSION['username']; ?></h1>
     <div class="position-absolute top-50 start-0 translate-middle-y" style="width: 100%">
         <h5 class="card-header">barang yang tersedia</h5>
         <div class="card-body">

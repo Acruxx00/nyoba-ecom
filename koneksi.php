@@ -5,6 +5,9 @@ if (!$conn) {
     echo "Failed Connection ";
 }
 
+$all = mysqli_query($conn, 'select * from user');
+// $data = mysqli_fetch_assoc($all);
+
 
 // function login($data)
 // {
