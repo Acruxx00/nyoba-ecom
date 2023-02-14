@@ -36,35 +36,37 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
     <title>tokoprinter - bersama</title>
     <style>
-        html,
         body {
             width: 100%;
             height: 100%;
-            background-image: linear-gradient(to right, #e4e4e4, #000000);
+            background-image: linear-gradient(to right, #5b247a, #1bcedf);
         }
 
-        .navbar {
-            background-image: linear-gradient(to right, #000000, #e4e4e4);
-        }
-
-        .navbar-brand,
-        strong,
-        .akun {
-            color: #ffffff;
-        }
+        /* .navbar {
+            background-color: #931A25;
+        } */
     </style>
 </head>
 
 <body>
     <nav class="navbar">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">Navbar</a>
+        <div class="container-fluid d-flex justify-content-center">
+            <a class="navbar-brand text-light fs-1" href="#">Navbar</a>
         </div>
     </nav>
+    <?php $alert = '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+    <strong>Masukan Username dan Password Dengan Benar!!</strong>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>'; ?>
+    <?php if (isset($_GET['pesan'])) {
+        if ($_GET['pesan'] == 'gagal') {
+            echo $alert;
+        }
+    } ?>
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-15 ">
-                <div class="card position-absolute top-50 start-50 translate-middle" style="width: 20rem; background-image: linear-gradient(to right, #000000, #e4e4e4);">
+                <div class="card position-absolute top-50 start-50 translate-middle bg-light-emphasis" style="width: 20rem;">
                     <div class="card-header"> <strong> Login Page </strong></div>
                     <div class="card-body">
                         <form action="ceklogin.php" method="post">
@@ -88,20 +90,26 @@
                                 </div>
                                 <br>
                             </div>
-                            <button type="submit" name="submit" class="btn btn-white text-black bg-white">Login</button>
+                            <button type="submit" name="submit" class="btn btn-black text-white bg-black">Login</button>
                         </form>
                     </div>
                     <div class="card-body">
 
-                        <a href="register.php" class="btn btn-black text-white bg-black">Register</a>
-                        <a href="nologin.php" class="text-black">as Guest</a>
+                        <div class="row">
+                            <div class="col">
+                                <a href="register.php" class="btn btn-black text-white bg-info">Register</a>
+                            </div>
+                            <div class="col-4">
+                                <a href="nologin.php" class="text-black">as Guest</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js    "></script>
 </body>
 
 </html>

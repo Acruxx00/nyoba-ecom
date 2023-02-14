@@ -1,6 +1,7 @@
 <?php
 
 include '../koneksi.php';
+$id = $_POST['id'];
 $nama = $_POST['nama'];
 $harga = $_POST['harga'];
 $stok = $_POST['stok'];

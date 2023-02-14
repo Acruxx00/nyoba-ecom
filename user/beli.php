@@ -14,10 +14,9 @@
 </head>
 
 <body>
-    <a href="index.php">Lihat Semua Data</a>
 
     <br />
-    <h3>Edit data</h3>
+    <h3>Beli</h3>
 
     <?php
     include "../koneksi.php";
@@ -25,22 +24,35 @@
     $query_mysql = mysqli_query($conn, "SELECT * FROM barang WHERE id='$id'") or die(mysqli_error($conn));
     while ($data = mysqli_fetch_array($query_mysql)) {
     ?>
-        <form action="edit-aksi.php" method="post">
+        <form action="beli-aksi.php" method="post">
             <table>
                 <tr>
                     <td>Nama</td>
                     <td>
                         <input type="hidden" name="id" value="<?php echo $data['id'] ?>">
-                        <input type="text" name="nama" value="<?php echo $data['nama'] ?>" required>
+                        <input type="text" name="nama" readonly value="<?php echo $data['nama'] ?>" required>
                     </td>
                 </tr>
                 <tr>
                     <td>Harga</td>
-                    <td><input type="number" name="harga" value="<?php echo $data['harga'] ?>" required></td>
+                    <td><input type="number" name="harga" readonly value="<?php echo $data['harga'] ?>" required></td>
                 </tr>
                 <tr>
                     <td>Stok</td>
-                    <td><input type="number" name="stok" value="<?php echo $data['stok'] ?>" required></td>
+                    <td><input type="number" name="stok" required></td>
+                </tr>
+                <tr>
+                    <td>Alamat</td>
+                    <td><input type="text" name="alamat" required></td>
+                </tr>
+                <tr>
+                    <td>Kode Pos</td>
+                    <td><input type="number" name="kodepos" required></td>
+                </tr>
+                <tr>
+                    <td><input type="radio" name="pengiriman" value="JNE" id="jne" required> <label for="jne">JNE</label></td>
+                    <td><input type="radio" name="pengiriman" value="J&T" id="jnt" required> <label for="jnt">J&T</label></td>
+                    <td><input type="radio" name="pengiriman" value="SiCepat" id="sicepat" required> <label for="sicepat">SiCepat</label></td>
                 </tr>
                 <tr>
                     <td></td>
