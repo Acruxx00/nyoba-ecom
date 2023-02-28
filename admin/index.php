@@ -34,7 +34,7 @@
                             <a class="nav-link text-light active" aria-current="page" href="tambah.php">tambah barang</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-light active" aria-current="page" href="#">konfirmasi</a>
+                            <a class="nav-link text-light active" aria-current="page" href="konfirmasi.php">konfirmasi</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-light active" aria-current="page" href="#">Home</a>
