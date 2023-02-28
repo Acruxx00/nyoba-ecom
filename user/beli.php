@@ -21,8 +21,10 @@
 
     <?php
     include "../koneksi.php";
-    $id = $_GET['id'];
-    $query_mysql = mysqli_query($conn, "SELECT * FROM barang WHERE id='$id'") or die(mysqli_error($conn));
+    session_start();
+    $id = $_GET['idbarang'];
+    $iduser = $_SESSION["iduser"];
+    $query_mysql = mysqli_query($conn, "SELECT * FROM barang WHERE idbarang='$id'") or die(mysqli_error($conn));
     while ($data = mysqli_fetch_array($query_mysql)) {
     ?>
         <form action="beli-aksi.php" method="post">
@@ -30,7 +32,8 @@
                 <tr>
                     <td>Nama</td>
                     <td>
-                        <input type="hidden" name="id" value="<?php echo $data['id'] ?>">
+                        <input type="hidden" name="iduser" value="<?php echo $iduser ?>">
+                        <input type="hidden" name="idbarang" value="<?php echo $data['idbarang'] ?>">
                         <input type="text" name="nama" readonly value="<?php echo $data['nama'] ?>" required>
                     </td>
                 </tr>
@@ -51,7 +54,7 @@
                     <td><input type="number" name="kodepos" required></td>
                 </tr>
                 <tr>
-                    <td><input type="hidden" name="status" value="belum dikonfirmasi" required></td>
+                    <td><input type="hidden" name="status" value="0" required></td>
                 </tr>
                 <tr>
                     <td><input type="radio" name="pengiriman" value="JNE" id="jne" required> <label for="jne">JNE</label></td>

@@ -1,6 +1,6 @@
 <?php
 require "../koneksi.php";
-$query_mysql = mysqli_query($conn, "SELECT * FROM pembelian WHERE status = 'belum dikonfirmasi'");
+$query_mysql = mysqli_query($conn, "SELECT * FROM pembelian WHERE status = '0'");
 
 // isset konfirmasi
 if (isset($_POST["verifikasi"])) {
@@ -70,7 +70,6 @@ if (isset($_POST["tolak"])) {
                     <td><?= $data['nama'] ?></td>
                     <td><?= $data['harga'] ?></td>
                     <td><?= $data['stok'] ?></td>
-                    <td><?= $data['stok'] * $data["harga"] ?></td>
                     <td>
                         <button type="button" class="btn btn-success my-2" data-bs-toggle="modal" data-bs-target="#konfirmasi<?= $data["id"] ?>">Konfirmasi</button>
                         <button type="button" class="btn btn-danger my-2" data-bs-toggle="modal" data-bs-target="#tolak<?= $data["id"] ?>">Tolak</button>

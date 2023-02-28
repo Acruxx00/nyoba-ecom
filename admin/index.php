@@ -71,8 +71,8 @@
                     <td scope="col"><?php echo $data['harga']; ?></td>
                     <td scope="col"><?php echo $data['stok']; ?></td>
                     <td>
-                        <a class="btn btn-warning" href="edit.php?id=<?php echo $data['id']; ?>">Edit</a> |
-                        <a class="btn btn-danger" href="hapus.php?id=<?php echo $data['id']; ?>">Hapus</a>
+                        <a class="btn btn-warning" href="edit.php?idbarang=<?php echo $data['idbarang']; ?>">Edit</a> |
+                        <a class="btn btn-danger" href="hapus.php?idbarang=<?php echo $data['idbarang']; ?>">Hapus</a>
                     </td>
                 </tr>
             </tbody>

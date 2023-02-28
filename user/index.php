@@ -65,7 +65,7 @@
                     <td scope="col"><?php echo $data['harga']; ?></td>
                     <td scope="col"><?php echo $data['stok']; ?></td>
                     <td>
-                        <a class="btn btn-primary" href="beli.php?id=<?php echo $data['id']; ?>">Beli</a>
+                        <a class="btn btn-primary" href="beli.php?idbarang=<?php echo $data['idbarang']; ?>">Beli</a>
                     </td>
                 </tr>
             </tbody>

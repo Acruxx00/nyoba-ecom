@@ -3,7 +3,16 @@ require "../koneksi.php";
 session_start();
 
 $id = $_SESSION["iduser"];
-$result = mysqli_query($conn, "SELECT * FROM pembelian WHERE iduser = '$id' ");
+
+$result = mysqli_query($conn, "SELECT barang.nama AS barang, 
+pembelian.harga, 
+user.username, 
+pembelian.stok, 
+pembelian.alamat, 
+pembelian.status, 
+pembelian.pengiriman  FROM `pembelian`
+INNER JOIN barang ON pembelian.idbarang = barang.idbarang
+INNER JOIN user ON pembelian.iduser = user.iduser;");
 
 ?>
 <!DOCTYPE html>
@@ -37,7 +46,7 @@ $result = mysqli_query($conn, "SELECT * FROM pembelian WHERE iduser = '$id' ");
             <tr>
                 <th>No</th>
                 <th>Nama</th>
-                <th>Produk</th>
+                <th>harga</th>
                 <th>Jumlah Beli</th>
                 <th>Total Pembayaran</th>
                 <th>Status</th>
@@ -58,10 +67,10 @@ $result = mysqli_query($conn, "SELECT * FROM pembelian WHERE iduser = '$id' ");
             ?>
                 <tr>
                     <td><?= $nomor++ ?></td>
-                    <td><?= $data["nama"] ?></td>
+                    <td><?= $data["barang"] ?></td>
                     <td><?= $data["harga"] ?></td>
                     <td><?= $data["stok"] ?></td>
-                    <td><?= $data["harga"] * $data["stok"] ?></td>
+                    <td><?= $data["harga"] ?></td>
                     <td><?= $status ?></td>
                 </tr>
             <?php endwhile; ?>

@@ -21,8 +21,8 @@
 
     <?php
     include "../koneksi.php";
-    $id = $_GET['id'];
-    $query_mysql = mysqli_query($conn, "SELECT * FROM barang WHERE id='$id'") or die(mysqli_error($conn));
+    $id = $_GET['idbarang'];
+    $query_mysql = mysqli_query($conn, "SELECT * FROM barang WHERE idbarang='$id'") or die(mysqli_error($conn));
     while ($data = mysqli_fetch_array($query_mysql)) {
     ?>
         <form action="edit-aksi.php" method="post">
@@ -30,7 +30,7 @@
                 <tr>
                     <td>Nama</td>
                     <td>
-                        <input type="hidden" name="id" value="<?php echo $data['id'] ?>">
+                        <input type="hidden" name="idbarang" value="<?php echo $data['idbarang'] ?>">
                         <input type="text" name="nama" value="<?php echo $data['nama'] ?>" required>
                     </td>
                 </tr>
