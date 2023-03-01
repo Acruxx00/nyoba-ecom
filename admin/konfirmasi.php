@@ -1,6 +1,15 @@
 <?php
 require "../koneksi.php";
-$query_mysql = mysqli_query($conn, "SELECT * FROM pembelian WHERE status = '0'");
+$query_mysql = mysqli_query($conn, "SELECT barang.nama AS barang,
+pembelian.id, 
+pembelian.harga, 
+user.username, 
+pembelian.stok, 
+pembelian.alamat, 
+pembelian.status, 
+pembelian.pengiriman  FROM `pembelian`
+INNER JOIN barang ON pembelian.idbarang = barang.idbarang
+INNER JOIN user ON pembelian.iduser = user.iduser WHERE status = '0'");
 
 // isset konfirmasi
 if (isset($_POST["verifikasi"])) {
@@ -57,19 +66,22 @@ if (isset($_POST["tolak"])) {
         <table class="table table-bordered">
             <tr>
                 <th>No</th>
-                <th>Nama</th>
-                <th>harga</th>
+                <th>username</th>
+                <th>Nama barang</th>
+                <th>total harga</th>
                 <th>Jumlah Beli</th>
-                <th>Total Pembayaran</th>
+                <th>Alamat</th>
                 <th>Aksi</th>
             </tr>
             <?php $nomor = 1;
             while ($data = mysqli_fetch_array($query_mysql)) : ?>
                 <tr>
                     <td><?= $nomor++ ?></td>
-                    <td><?= $data['nama'] ?></td>
+                    <td><?= $data['username'] ?></td>
+                    <td><?= $data['barang'] ?></td>
                     <td><?= $data['harga'] ?></td>
                     <td><?= $data['stok'] ?></td>
+                    <td><?= $data['alamat'] ?></td>
                     <td>
                         <button type="button" class="btn btn-success my-2" data-bs-toggle="modal" data-bs-target="#konfirmasi<?= $data["id"] ?>">Konfirmasi</button>
                         <button type="button" class="btn btn-danger my-2" data-bs-toggle="modal" data-bs-target="#tolak<?= $data["id"] ?>">Tolak</button>

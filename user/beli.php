@@ -63,6 +63,13 @@
                 </tr>
                 <tr>
                     <td><a href="index.php" class="btn btn-danger text-light bg-danger text-decoration-none">Kembali</a></td>
+                    <?php
+                    $username = $_SESSION["username"];
+                    $result = mysqli_query($conn, "SELECT * FROM user WHERE username = '$username'");
+                    $data = mysqli_fetch_assoc($result);
+                    ?>
+                    <br>
+                    <input type="hidden" name="username" value="<?php echo $data["username"]; ?>">
                     <td><button type="submit" class="btn btn-success">beli</button></td>
                 </tr>
             </table>

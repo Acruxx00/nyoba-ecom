@@ -30,7 +30,7 @@
             </tr>
             <tr>
                 <td>Stok</td>
-                <td><input type="number" name="stok"></td>
+                <td><input type="text" readonly name="stok" value="tersedia"></td>
             </tr>
 
             <tr>

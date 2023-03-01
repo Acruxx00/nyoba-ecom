@@ -3,6 +3,7 @@ require "../koneksi.php";
 session_start();
 
 $id = $_SESSION["iduser"];
+$username = $_SESSION["username"];
 
 $result = mysqli_query($conn, "SELECT barang.nama AS barang, 
 pembelian.harga, 
@@ -10,9 +11,11 @@ user.username,
 pembelian.stok, 
 pembelian.alamat, 
 pembelian.status, 
-pembelian.pengiriman  FROM `pembelian`
+pembelian.pengiriman  FROM pembelian
 INNER JOIN barang ON pembelian.idbarang = barang.idbarang
-INNER JOIN user ON pembelian.iduser = user.iduser;");
+INNER JOIN user ON pembelian.iduser = user.iduser 
+WHERE username = '$username' ORDER BY id DESC;");
+
 
 ?>
 <!DOCTYPE html>
@@ -46,6 +49,7 @@ INNER JOIN user ON pembelian.iduser = user.iduser;");
             <tr>
                 <th>No</th>
                 <th>Nama</th>
+                <th>Pembeli</th>
                 <th>harga</th>
                 <th>Jumlah Beli</th>
                 <th>Total Pembayaran</th>
@@ -68,6 +72,7 @@ INNER JOIN user ON pembelian.iduser = user.iduser;");
                 <tr>
                     <td><?= $nomor++ ?></td>
                     <td><?= $data["barang"] ?></td>
+                    <td><?= $data["username"] ?></td>
                     <td><?= $data["harga"] ?></td>
                     <td><?= $data["stok"] ?></td>
                     <td><?= $data["harga"] ?></td>

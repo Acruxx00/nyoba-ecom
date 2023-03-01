@@ -40,7 +40,10 @@
                 </tr>
                 <tr>
                     <td>Stok</td>
-                    <td><input type="number" name="stok" value="<?php echo $data['stok'] ?>" required></td>
+                    <td><select name="stok" id="stok">
+                            <option value="tersedia">Tersedia</option>
+                            <option value="habis">Habis</option>
+                        </select></td>
                 </tr>
                 <tr>
                     <td></td>

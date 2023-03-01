@@ -42,7 +42,7 @@
         </nav>
     </div>
 
-    <table class="table table-dark">
+    <table class="table table-info">
         <thead>
             <tr>
                 <th scope="col">No</th>
@@ -64,9 +64,15 @@
                     <td scope="col"><?php echo $data['nama']; ?></td>
                     <td scope="col"><?php echo $data['harga']; ?></td>
                     <td scope="col"><?php echo $data['stok']; ?></td>
-                    <td>
-                        <a class="btn btn-primary" href="beli.php?idbarang=<?php echo $data['idbarang']; ?>">Beli</a>
-                    </td>
+                    <?php if ($data["stok"] == "tersedia") : ?>
+                        <td>
+                            <a class="btn btn-primary" href="beli.php?idbarang=<?php echo $data['idbarang']; ?>">Beli</a>
+                        </td>
+                    <?php elseif ($data["stok"] == "habis") : ?>
+                        <td>
+                            <a class="btn btn-dark" href="#">Sold Out</a>
+                        </td>
+                    <?php endif; ?>
                 </tr>
             </tbody>
         <?php } ?>
