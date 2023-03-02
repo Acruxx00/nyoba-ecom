@@ -45,7 +45,7 @@ WHERE username = '$username' ORDER BY id DESC;");
     <div class="container-fluid p-0">
         <nav class="navbar navbar-expand-lg">
             <div class="container-fluid">
-                <a class="navbar-brand text-light" href="#">Logo</a>
+                <a class="navbar-brand text-light" href="#">TOPER</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
