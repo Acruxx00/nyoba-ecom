@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>TOPER Admin</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
     <style>
         body {
@@ -24,20 +24,17 @@
     <div class="container-fluid p-0">
         <nav class="navbar navbar-expand-lg">
             <div class="container-fluid">
-                <a class="navbar-brand text-light" href="#">Logo</a>
+                <a class="navbar-brand text-light" href="#">TOPER</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarText">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link text-light active" aria-current="page" href="tambah.php">tambah barang</a>
+                            <a class="nav-link text-light active" aria-current="page" href="tambah.php">Tambah Barang</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-light active" aria-current="page" href="konfirmasi.php">konfirmasi</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-light active" aria-current="page" href="#">Home</a>
+                            <a class="nav-link text-light active" aria-current="page" href="konfirmasi.php">Konfirmasi</a>
                         </li>
                     </ul>
                     <span class="navbar-text">
@@ -48,14 +45,14 @@
         </nav>
     </div>
 
-    <table class="table table-dark">
+    <table class="table table-info">
         <thead>
             <tr>
                 <th scope="col">No</th>
                 <th scope="col">Nama</th>
                 <th scope="col">Harga</th>
                 <th scope="col">Stok</th>
-                <th scope="col">Opsi</th>
+                <th scope="col"></th>
             </tr>
         </thead>
         <?php
@@ -67,9 +64,9 @@
             <tbody>
                 <tr>
                     <td scope="row"><?php echo $nomor++; ?></td>
-                    <td scope="col"><?php echo $data['nama']; ?></td>
-                    <td scope="col"><?php echo $data['harga']; ?></td>
-                    <td scope="col"><?php echo $data['stok']; ?></td>
+                    <td><?php echo $data['nama']; ?></td>
+                    <td><?php echo $data['harga']; ?></td>
+                    <td><?php echo $data['stok']; ?></td>
                     <td>
                         <a class="btn btn-warning" href="edit.php?idbarang=<?php echo $data['idbarang']; ?>">Edit</a> |
                         <a class="btn btn-danger" href="hapus.php?idbarang=<?php echo $data['idbarang']; ?>">Hapus</a>

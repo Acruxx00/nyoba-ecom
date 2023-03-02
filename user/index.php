@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Toper</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
     <style>
         body {
@@ -61,12 +61,12 @@
             <tbody>
                 <tr>
                     <td scope="row"><?php echo $nomor++; ?></td>
-                    <td scope="col"><?php echo $data['nama']; ?></td>
-                    <td scope="col"><?php echo $data['harga']; ?></td>
-                    <td scope="col"><?php echo $data['stok']; ?></td>
+                    <td><?php echo $data['nama']; ?></td>
+                    <td><?php echo $data['harga']; ?></td>
+                    <td><?php echo $data['stok']; ?></td>
                     <?php if ($data["stok"] == "tersedia") : ?>
                         <td>
-                            <a class="btn btn-primary" href="beli.php?idbarang=<?php echo $data['idbarang']; ?>">Beli</a>
+                            <a class="btn btn-light" href="beli.php?idbarang=<?php echo $data['idbarang']; ?>">Beli</a>
                         </td>
                     <?php elseif ($data["stok"] == "habis") : ?>
                         <td>
